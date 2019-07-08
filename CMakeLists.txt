@@ -9,5 +9,4 @@ INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIR})
 
 add_executable(hello main.cpp)
 add_executable(boost boostArray.cpp)
-add_executable(gcheck gtestCheck.cpp)
 
