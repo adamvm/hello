@@ -30,6 +30,10 @@ install:
   # setup Boost
   - sudo apt install libboost-all-dev
   
+  # setup Gtest
+  - sudo apt install libgtest-dev
+  - sudo apt install libgmock-dev
+  
   # Set the ${CXX} variable properly
   - export CXX=${COMPILER}
   - ${CXX} --version
