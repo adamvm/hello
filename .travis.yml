@@ -27,6 +27,9 @@ matrix:
       addons: *clang70
 
 install:
+  # setup Boost
+  - sudo apt install libboost-all-dev
+  
   # Set the ${CXX} variable properly
   - export CXX=${COMPILER}
   - ${CXX} --version
