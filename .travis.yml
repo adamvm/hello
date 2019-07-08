@@ -32,7 +32,7 @@ install:
   
   # setup Gtest
   - sudo apt install libgtest-dev
-  - sudo apt install libgmock-dev
+  #  TODO add Gmock
   
   # Set the ${CXX} variable properly
   - export CXX=${COMPILER}
