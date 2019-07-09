@@ -17,7 +17,7 @@ before_install:
 script:
   - CXX=/usr/bin/g++-6 CC=/usr/bin/gcc-6 cmake .
   - cmake --build . 
-  - ./gtest
+  - ./gtests
 
 after_success:
   - coveralls --root . -E ".*CMakeFiles.*" 
