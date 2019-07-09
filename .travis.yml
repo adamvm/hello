@@ -15,9 +15,9 @@ before_install:
   - sudo apt install libboost-all-dev
 
 script:
-  - CXX=/usr/bin/g++-6 CC=/usr/bin/gcc-6 cmake -DCOVERAGE=1 .
+  - CXX=/usr/bin/g++-6 CC=/usr/bin/gcc-6 cmake .
   - cmake --build . 
-  - ./tests
+  - ./gtest
 
 after_success:
   - coveralls --root . -E ".*CMakeFiles.*" 
