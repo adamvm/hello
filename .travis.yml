@@ -1,11 +1,11 @@
-dist: trusty
+dist: xenial
 language: cpp
 
 addons:
   apt:
     sources:
       - ubuntu-toolchain-r-test
-      - llvm-toolchain-trusty-5.0
+      - llvm-toolchain-xenial-6.0
     packages:
       - g++-6
       - clang-5.0
