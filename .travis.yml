@@ -3,9 +3,6 @@ language: cpp
 
 addons:
   apt:
-    sources:
-      - ubuntu-toolchain-r-test
-      - llvm-toolchain-bionic-6.0
     packages:
       - g++-8
       - clang-8
