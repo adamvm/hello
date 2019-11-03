@@ -1,21 +1,21 @@
-dist: xenial
+dist: bionic
 language: cpp
 
 addons:
   apt:
     sources:
       - ubuntu-toolchain-r-test
-      - llvm-toolchain-xenial-6.0
+      - llvm-toolchain-bionic-6.0
     packages:
-      - g++-6
-      - clang-5.0
+      - g++-8
+      - clang-8
 
 before_install:
   - pip install --user cpp-coveralls
   - sudo apt install libboost-all-dev
 
 script:
-  - CXX=/usr/bin/g++-6 CC=/usr/bin/gcc-6 cmake .
+  - CXX=/usr/bin/g++-8 CC=/usr/bin/gcc-8 cmake .
   - cmake --build . 
   - ./gtests
 
