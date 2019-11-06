@@ -10,11 +10,13 @@ addons:
 before_install:
   - pip install --user cpp-coveralls
   - sudo apt install libboost-all-dev
+  - sudo apt-get install valgrind
 
 script:
   - CXX=/usr/bin/g++-8 CC=/usr/bin/gcc-8 cmake .
   - cmake --build . 
   - ./gtests
+  - valgrind --error-exitcode=42 --leak-check=full ./gtest
 
 after_success:
   - coveralls --root . -E ".*CMakeFiles.*" 
