@@ -1,6 +1,9 @@
 dist: bionic
 language: cpp
 
+python:
+  - "3.8"
+
 addons:
   apt:
     packages:
