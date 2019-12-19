@@ -11,8 +11,9 @@ addons:
       - clang-8
 
 before_install:
+  - pip install --upgrade pip
   - pip install --user cpp-coveralls
-  - pip install conan
+  - pip install --user conan
   - sudo apt-get update -qq
   - sudo apt install libboost-all-dev
   - sudo apt-get install valgrind
