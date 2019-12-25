@@ -20,9 +20,9 @@ before_install:
 
 script:
   - CXX=/usr/bin/g++-8 CC=/usr/bin/gcc-8 cmake .
-  - cmake --build . 
+  - cmake --build .
   - ./gtests
   - valgrind -v --error-exitcode=42 --leak-check=full ./gtests
 
 after_success:
-  - coveralls --root . -E ".*CMakeFiles.*" 
+  - coveralls --root . -E ".*CMakeFiles.*"
