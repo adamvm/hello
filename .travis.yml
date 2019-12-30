@@ -39,4 +39,4 @@ script:
   - valgrind -v --error-exitcode=42 --leak-check=full ./gtests
 
 after_success:
-  - coveralls --root . -E ".*CMakeFiles.*"
+  - coveralls --root . -E ".*CMakeFiles.*" omit= */_deps/*
