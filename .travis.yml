@@ -1,6 +1,10 @@
 dist: bionic
 language: cpp
 
+env:
+  global:
+    - DEPS_DIR=${TRAVIS_BUILD_DIR}/deps
+
 python:
   - "3.8"
 
