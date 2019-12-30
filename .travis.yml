@@ -21,7 +21,7 @@ before_install:
   - sudo apt-get update -qq
   - sudo apt install libboost-all-dev
   - sudo apt-get install valgrind
-  
+
 install:
 # Download and install recent cmake
     - |
