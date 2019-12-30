@@ -1,9 +1,23 @@
-cmake_minimum_required(VERSION 3.9)
+cmake_minimum_required(VERSION 3.11)
 project(hello)
 
-add_subdirectory(gtest)
-include_directories(${gtest_SOURCE_DIR}/include
-                    ${gtest_SOURCE_DIR})
+# Get Googletest
+
+include(FetchContent)
+
+FetchContent_Declare(
+    googletest
+    GIT_REPOSITORY https://github.com/google/googletest.git
+    GIT_TAG        master
+)
+
+FetchContent_GetProperties(googletest)
+if (NOT googletest_POPULATED)
+    FetchContent_Populate(googletest)
+    add_subdirectory(${googletest_SOURCE_DIR} ${googletest_BINARY_DIR})
+endif ()
+
+# Get Boost
 
 find_package(Boost COMPONENTS program_options REQUIRED)
 include_directories(${Boost_INCLUDE_DIR})
