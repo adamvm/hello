@@ -19,8 +19,16 @@ endif ()
 
 # Get Boost
 
-find_package(Boost COMPONENTS program_options REQUIRED)
-include_directories(${Boost_INCLUDE_DIR})
+FetchContent_Declare(
+        boost
+        GIT_REPOSITORY https://github.com/boostorg/boost.git
+        GIT_TAG        master
+)
+FetchContent_GetProperties(boost)
+if (NOT boost_POPULATED)
+    FetchContent_Populate(boost)
+    add_subdirectory(${boost_SOURCE_DIR} ${boost_BINARY_DIR})
+endif ()
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -pedantic -Wextra")
 
