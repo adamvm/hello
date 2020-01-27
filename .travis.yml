@@ -18,7 +18,7 @@ before_install:
   - pip install --user --upgrade pip
   - pip install --user cpp-coveralls
   - pip install --user conan
-  - sudo apt --user update -qq
+  - sudo apt update -qq
   - sudo apt install libboost-all-dev
   - sudo apt install valgrind
 
