@@ -18,9 +18,9 @@ before_install:
   - pip install --upgrade pip
   - pip install --user cpp-coveralls
   - pip install --user conan
-  - sudo apt-get update -qq
+  - sudo apt --user update -qq
   - sudo apt install libboost-all-dev
-  - sudo apt-get install valgrind
+  - sudo apt install valgrind
 
 install:
 # Download and install recent cmake
