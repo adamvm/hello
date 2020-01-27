@@ -15,18 +15,18 @@ addons:
       - clang-8
 
 before_install:
-  - pip install --upgrade pip
+  - pip install --user --upgrade pip
   - pip install --user cpp-coveralls
   - pip install --user conan
-  - sudo apt-get update -qq
+  - sudo apt update -qq
   - sudo apt install libboost-all-dev
-  - sudo apt-get install valgrind
+  - sudo apt install valgrind
 
 install:
 # Download and install recent cmake
     - |
       if [[ ${TRAVIS_OS_NAME} == "linux" ]]; then
-        CMAKE_URL="http://www.cmake.org/files/v3.15/cmake-3.15.0-Linux-x86_64.tar.gz"
+        CMAKE_URL="http://www.cmake.org/files/v3.16/cmake-3.16.3-Linux-x86_64.tar.gz"
         mkdir -p ${DEPS_DIR}/cmake
         travis_retry wget --no-check-certificate --quiet -O - ${CMAKE_URL} | tar --strip-components=1 -xz -C ${DEPS_DIR}/cmake
         export PATH=${DEPS_DIR}/cmake/bin:${PATH}
