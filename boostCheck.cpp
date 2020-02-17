@@ -1,5 +1,7 @@
 #include <boost/array.hpp>
+#include <boost/thread.hpp>
 #include <algorithm>
+#include <iostream>
 
 typedef boost::array<char, 4> array4_t;
 
@@ -10,14 +12,21 @@ array4_t &vector_advance(array4_t &val) {
     return val;
 }
 
+void thFunction() {
+    std::cout << "Thread is running" << std::endl;
+}
+
 int main() {
     array4_t val = {0, 1, 2, 3};
 
     array4_t val_res;
     val_res = vector_advance(val);
 
-    assert(val.size() == 4);
+    static_assert(array4_t::size() == 4, "");
     assert(val[0] == 1);
 
-    assert(sizeof(val) == sizeof(char) * array4_t::static_size);
+    static_assert(sizeof(val) == sizeof(char) * array4_t::static_size, "");
+
+    boost::thread t(thFunction);
+    t.join();
 }
