@@ -20,4 +20,6 @@ int main() {
     assert(val[0] == 1);
 
     assert(sizeof(val) == sizeof(char) * array4_t::static_size);
+    
+    return 0;
 }
