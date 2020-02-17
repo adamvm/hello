@@ -29,4 +29,6 @@ int main() {
 
     boost::thread t(thFunction);
     t.join();
+    
+    return 0;
 }
