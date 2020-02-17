@@ -19,12 +19,16 @@ endif ()
 
 # Get Boost
 
-find_package(Boost COMPONENTS program_options REQUIRED)
+find_package(Boost COMPONENTS program_options thread REQUIRED)
 include_directories(${Boost_INCLUDE_DIR})
+link_directories(${Boost_LIBRARY_DIR})
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wpedantic -Wextra -Wunused")
 
 add_executable(hello  main.cpp)
-add_executable(boost  boostArray.cpp)
+
+add_executable(boost boostCheck.cpp)
+target_link_libraries(boost ${Boost_LIBRARIES})
+
 add_executable(gtests gtestCheck.cpp)
 target_link_libraries(gtests gtest_main gmock_main)
