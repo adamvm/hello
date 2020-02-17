@@ -37,7 +37,7 @@ script:
   - ${DEPS_DIR}/cmake/bin/cmake --build .
   - ./gtests
   - valgrind -v --error-exitcode=42 --leak-check=full ./gtests
-  - valgrind -v --error-exitcode=42 --leak-check=full ./boostCheck
+  - valgrind -v --error-exitcode=42 --leak-check=full ./boost
   - valgrind -v --error-exitcode=42 --leak-check=full ./hello
 
 after_success:
