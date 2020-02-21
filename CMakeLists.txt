@@ -23,7 +23,9 @@ find_package(Boost COMPONENTS program_options thread REQUIRED)
 include_directories(${Boost_INCLUDE_DIR})
 link_directories(${Boost_LIBRARY_DIR})
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wpedantic -Wextra -Wunused")
+add_definitions(-Wno-unused-variable)
+add_definitions(-Wno-unused-parameter)
+add_definitions(-Wall -Werror -pedantic -Wextra)
 
 add_executable(hello  main.cpp)
 
