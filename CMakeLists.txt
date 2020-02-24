@@ -37,7 +37,6 @@ conan_cmake_run(REQUIRES fmt/6.0.0@bincrafters/stable
                 BASIC_SETUP 
                 BUILD missing)
 
-add_definition(-DCMAKE_BUILD_TYPE=Release)
 add_definitions(-Wno-unused-variable)
 add_definitions(-Wno-unused-parameter)
 add_definitions(-Wall -Werror -pedantic -Wextra)
