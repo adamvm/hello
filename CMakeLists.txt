@@ -19,9 +19,21 @@ endif ()
 
 # Get Boost
 
-find_package(Boost COMPONENTS program_options thread REQUIRED)
-include_directories(${Boost_INCLUDE_DIR})
-link_directories(${Boost_LIBRARY_DIR})
+FetchContent_Declare(
+        boostorg
+        GIT_REPOSITORY https://github.com/boostorg/boost.git
+        GIT_TAG        master
+)
+
+FetchContent_GetProperties(boostorg)
+if (NOT boostorg_POPULATED)
+    FetchContent_Populate(boostorg)
+    add_subdirectory(${boostorg_SOURCE_DIR} ${boostorg_BINARY_DIR})
+endif ()
+
+set(BOOST_ENABLE_CMAKE ON)
+
+include_directories(${boostorg_SOURCE_DIR})
 
 add_definitions(-Wno-unused-variable)
 add_definitions(-Wno-unused-parameter)
