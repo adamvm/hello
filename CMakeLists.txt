@@ -23,9 +23,20 @@ find_package(Boost COMPONENTS program_options thread REQUIRED)
 include_directories(${Boost_INCLUDE_DIR})
 link_directories(${Boost_LIBRARY_DIR})
 
-add_definitions(-Wno-unused-variable)
-add_definitions(-Wno-unused-parameter)
-add_definitions(-Wall -Werror -pedantic -Wextra)
+add_compile_options(
+    -pedantic
+    -Wall
+    -Werror
+    -Wextra
+    -Wfatal-errors
+    -Wmissing-field-initializers
+    -Wuninitialized
+    -Wno-format-security
+    -Wno-unused-result
+    -Wno-unused-parameter
+    -Wno-unused-variable
+    -Wno-abi
+    )
 
 add_executable(hello  main.cpp)
 
